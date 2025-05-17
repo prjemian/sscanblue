@@ -1,0 +1,52 @@
+# file: pyproject.toml
+
+[build-system]
+requires = ["setuptools>=77", "setuptools-scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sscanblue"
+description = "Execute pre-configured EPICS/synApps sscans using Bluesky."
+dynamic = ["version"]
+authors = [  { name="BCDA" } ]
+maintainers = [  { name="Pete Jemian" } ]
+readme = "README.md"
+requires-python = ">=3.11"
+keywords = ["EPICS", "synApps", "sscan", "data acquisition", "bluesky"]
+license = "LicenseRef-ANL-Open-Source-License"
+license-files = ["LICENSE.txt"]
+classifiers = [
+  "Development Status :: 6 - Mature",
+  "Environment :: Console",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering",
+  "Topic :: Software Development :: Embedded Systems",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Utilities",
+]
+dependencies = [
+    "apstools",
+    "bluesky",
+    'databroker',
+    "ophyd",
+    "pyRestTable",
+    "pyzmq",  # Shouldn't this come from bluesky?
+]
+
+[project.scripts]
+# module = ["package.module:main"]
+
+[tool.setuptools]
+script-files = ["scripts/sscan1blue"]
+
+[project.urls]
+"Homepage" = "https://github.com/prjemian/sscanblue/"
+"Bug Tracker" = "https://github.com/prjemian/sscanblue/issues"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
+
+[tool.setuptools_scm]
