@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# file: sscan1blue
-
-# FIXME: logging options do not show
-python -m sscanblue.sscan1blue ${@}

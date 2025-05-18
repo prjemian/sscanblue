@@ -1,11 +1,13 @@
-
+# build products
 build/
 dist/
 *.egg-info/
 __pycache__/
 
-#
+# editor settings
 .vscode/
+
+# data file output
 *.dat
 *.h5
 *.hdf

@@ -35,10 +35,10 @@ dependencies = [
 ]
 
 [project.scripts]
-# module = ["package.module:main"]
+sscan1blue = "sscanblue.sscan1blue:main"
 
-[tool.setuptools]
-script-files = ["scripts/sscan1blue"]
+# [tool.setuptools]
+# script-files = ["scripts/sscan1blue.sh"]
 
 [project.urls]
 "Homepage" = "https://github.com/prjemian/sscanblue/"
