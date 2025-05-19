@@ -38,8 +38,8 @@ dependencies = [
 sscan1blue = "sscanblue.sscan1blue:main"
 
 [project.urls]
-"Homepage" = "https://github.com/prjemian/sscanblue/"
-"Bug Tracker" = "https://github.com/prjemian/sscanblue/issues"
+"Homepage" = "https://github.com/BCDA-APS/sscanblue/"
+"Bug Tracker" = "https://github.com/BCDA-APS/sscanblue/issues"
 
 [tool.pytest.ini_options]
 addopts = [

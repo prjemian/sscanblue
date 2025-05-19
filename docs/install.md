@@ -19,7 +19,7 @@ conda activate sscanblue
 ## Checkout source
 
 ```bash
-git clone https://github.com/prjemian/sscanblue
+git clone https://github.com/BCDA-APS/sscanblue
 cd sscanblue
 ```
 
