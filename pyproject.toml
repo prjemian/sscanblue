@@ -34,6 +34,32 @@ dependencies = [
     "pyzmq",  # Shouldn't this come from bluesky?
 ]
 
+[project.optional-dependencies]
+dev = [
+  "build",
+  "coverage",
+  "coveralls",
+  "isort",
+  "mypy",
+  "pre-commit",
+  "pytest",
+  "ruff",
+]
+doc = [
+  "ipython",
+  "jinja2 >=3.0",
+  "markupsafe ==2.0.1",
+  "myst-parser",
+  "nbsphinx",
+  "pydata-sphinx-theme",
+  "pygments >=2.12",
+  "pygments-ipython-console",
+  "setuptools-scm",
+  "sphinx",
+  "sphinx-design",
+]
+all = ["sscanblue[dev,doc]"]
+
 [project.scripts]
 sscan1blue = "sscanblue.sscan1blue:main"
 
