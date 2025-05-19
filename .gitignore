@@ -1,12 +1,11 @@
 # build products
 build/
 .coverage
+.coverage.*
+.cache
 dist/
 *.egg-info/
 __pycache__/
-
-# editor settings
-.vscode/
 
 # data file output
 *.dat
@@ -16,3 +15,15 @@ __pycache__/
 
 # developer
 dev_*
+
+# editor settings
+.vscode/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# setuptools_scm
+_version.py
+
+# Sphinx documentation
+docs/build/
