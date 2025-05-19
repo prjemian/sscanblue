@@ -12,3 +12,6 @@ __pycache__/
 *.h5
 *.hdf
 *.hdf5
+
+# developer
+dev_*
