@@ -31,17 +31,6 @@ def create_scan_id() -> int:
     return scan_id
 
 
-def setup_logging(level_index) -> None:
-    """Setup logging with selected configuration, return level."""
-    from .core import REPORTING_LEVELS
-
-    logging.addLevelName(REPORTING_BASIC, "BASIC")
-
-    level_index = min(level_index or 0, len(REPORTING_LEVELS) - 1)
-    level: int = REPORTING_LEVELS[level_index]
-    logging.basicConfig(level=level)
-
-
 def prepare_acquisition(
     parms: argparse.Namespace,
     RE: bluesky.RunEngine,
@@ -100,6 +89,17 @@ def prepare_acquisition(
 
     scan.wait_for_connection()
     return cat, scan, metadata
+
+
+def setup_logging(level_index) -> None:
+    """Setup logging with selected configuration, return level."""
+    from .core import REPORTING_LEVELS
+
+    logging.addLevelName(REPORTING_BASIC, "BASIC")
+
+    level_index = min(level_index or 0, len(REPORTING_LEVELS) - 1)
+    level: int = REPORTING_LEVELS[level_index]
+    logging.basicConfig(level=level)
 
 
 def sscan1blue_cli() -> argparse.Namespace:

@@ -4,7 +4,7 @@ import logging
 from typing import Optional
 
 from apstools.synApps.sscan import SscanRecord
-from ophyd import OphydObject
+from ophyd import Device
 
 from .core import SscanConfigurationException
 
@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 class MySscanRecord(SscanRecord):
     """Local changes & fixes."""
 
-    scan_mode: str = None  # LINEAR, TABLE, FLY
+    scan_mode: Optional[str] = None  # LINEAR, TABLE, FLY
 
     def select_channels(self) -> None:
         """
@@ -32,7 +32,7 @@ class MySscanRecord(SscanRecord):
 
         # Determine the scan mode.
         for p in self.positioners.component_names:
-            pos: OphydObject = getattr(self.positioners, p)
+            pos: Device = getattr(self.positioners, p)
             if self.scan_mode is None:
                 self.scan_mode = pos.mode.get(as_string=True)
             if pos.mode.get(as_string=True) != self.scan_mode:

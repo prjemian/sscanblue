@@ -37,8 +37,21 @@ def acquire_plan_sscan_1D(
     scanning: Status = Status()
     started: Status = Status()
     sscan.learn_sscan_setup()
+
+    # Validate.
     if sscan.scan_mode == "FLY":
         raise SscanConfigurationException("FLY scan not supported now.")
+    if len(sscan.read_attrs) == 0:
+        raise SscanConfigurationException(
+            f"Sscan record {sscan.prefix!r} not configured for scanning."
+            # .
+            " (No channels configured with EPICS PVs.)"
+        )
+    if sscan.number_points.get() == 0:
+        raise SscanConfigurationException(
+            f"No points to be collected. ({sscan.prefix}.NPTS=0)"
+            # .
+        )
 
     # Add PV assignments to metadata.
     assignments: dict = {}
@@ -83,11 +96,12 @@ def acquire_plan_sscan_1D(
     }
     if len(detectors) > 0:
         logger.info("detectors: %r", detectors)
-        _md["detectors"]: list[str] = detectors
+        _md["detectors"] = detectors
     if len(positioners) > 0:
         logger.info("positioners: %r", positioners)
-        _md["motors"]: list[str] = positioners
-    _md.update(md or {})
+        _md["motors"] = positioners
+    if md is not None:
+        _md.update(md)
     logger.info("Run metadata: %s", _md)
 
     if logger.getEffectiveLevel() < logging.WARNING:
