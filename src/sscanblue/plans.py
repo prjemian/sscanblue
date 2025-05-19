@@ -29,7 +29,6 @@ def acquire_plan_sscan_1D(
     sscan: SscanRecord,
     dwell: float = 0.001,
     md: Optional[dict[str, Any]] = None,
-    **kwargs: Optional[dict[str, Any]],
 ):
     """plan: Run the sscan record configured for 1-D.."""
 
